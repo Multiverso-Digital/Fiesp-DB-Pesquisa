@@ -1,0 +1,65 @@
+unit UGeraSenha;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, MSystemInfo;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    MSystemInfo1: TMSystemInfo;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  M : integer;
+implementation
+
+{$R *.DFM}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+Monta : string;
+I, H : integer;
+begin
+
+Edit2.Clear;
+
+
+If edit1.text = '' then
+   begin
+   showmessage('Número do usuário ausente');
+   exit;
+   end;
+
+
+monta := edit1.text;
+
+for I:=1 to length(monta) do
+begin
+
+M := ord(monta[I]);
+H := M * 2;
+
+edit2.text := edit2.text+char(H)+' ';
+
+
+end;
+
+
+
+
+end;
+
+end.
